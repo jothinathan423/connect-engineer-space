@@ -1,12 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { FileText } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const navItems = [
   { id: 'about', label: 'About' },
   { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
+  { id: 'achievements', label: 'Achievements' },
+  { id: 'problem-solving', label: 'Problem Solving' },
+  { id: 'participation', label: 'Participation' },
   { id: 'certifications', label: 'Certifications' },
   { id: 'contact', label: 'Contact' }
 ];
@@ -49,6 +54,12 @@ const Navbar = () => {
     }
   };
 
+  const openResume = () => {
+    // This would open your actual resume PDF file in a new tab
+    // Replace the URL with your actual resume PDF file location
+    window.open('/resume.pdf', '_blank');
+  };
+
   return (
     <header 
       className={cn(
@@ -62,7 +73,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-1">
+        <div className="hidden md:flex items-center space-x-1">
           {navItems.map(item => (
             <button
               key={item.id}
@@ -77,7 +88,17 @@ const Navbar = () => {
               {item.label}
             </button>
           ))}
-        </nav>
+          
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="ml-2 flex items-center gap-2" 
+            onClick={openResume}
+          >
+            <FileText className="h-4 w-4" />
+            Resume
+          </Button>
+        </div>
 
         {/* Mobile Navigation Toggle */}
         <button 
@@ -110,6 +131,15 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="mx-4 my-2 flex items-center gap-2 w-[calc(100%-2rem)]"
+              onClick={openResume}
+            >
+              <FileText className="h-4 w-4" />
+              Resume
+            </Button>
           </div>
         </div>
       )}

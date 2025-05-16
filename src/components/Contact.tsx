@@ -26,7 +26,14 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate form submission
+    // Generate email mailto link with form data
+    const mailtoLink = `mailto:jothinathan@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    
+    // Open the email client
+    window.open(mailtoLink, '_blank');
+    
+    // In a real application, you would send this data to a backend
+    // For now, we'll simulate sending and show success notification
     setTimeout(() => {
       setIsLoading(false);
       toast({
@@ -41,11 +48,11 @@ const Contact = () => {
         subject: '',
         message: ''
       });
-    }, 1500);
+    }, 1000);
   };
 
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-24 bg-gradient-to-br from-background to-secondary/30">
       <div className="container mx-auto">
         <div className="flex items-center gap-2 mb-12">
           <Mail className="text-primary" />
@@ -77,7 +84,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-sm">Email</h4>
-                  <p className="text-foreground/70">alex@example.com</p>
+                  <p className="text-foreground/70">jothinathan@gmail.com</p>
                 </div>
               </div>
               

@@ -1,39 +1,39 @@
 
 import React from 'react';
 import { Code } from 'lucide-react';
-import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card } from '@/components/ui/card';
 
 const skillsData = {
   technical: [
-    { name: "CAD/CAM Software", level: 90 },
-    { name: "Finite Element Analysis", level: 85 },
-    { name: "Thermodynamics", level: 80 },
-    { name: "Fluid Mechanics", level: 75 },
-    { name: "Mechanical Design", level: 85 },
-    { name: "MATLAB", level: 70 }
+    "CAD/CAM Software",
+    "Finite Element Analysis",
+    "Thermodynamics",
+    "Fluid Mechanics",
+    "Mechanical Design",
+    "MATLAB"
   ],
   software: [
-    { name: "SolidWorks", level: 90 },
-    { name: "AutoCAD", level: 85 },
-    { name: "ANSYS", level: 75 },
-    { name: "MATLAB/Simulink", level: 80 },
-    { name: "3D Printing", level: 70 },
-    { name: "Microsoft Office Suite", level: 95 }
+    "SolidWorks",
+    "AutoCAD",
+    "ANSYS",
+    "MATLAB/Simulink",
+    "3D Printing",
+    "Microsoft Office Suite"
   ],
   soft: [
-    { name: "Problem Solving", level: 90 },
-    { name: "Team Collaboration", level: 85 },
-    { name: "Communication", level: 80 },
-    { name: "Project Management", level: 75 },
-    { name: "Time Management", level: 85 },
-    { name: "Leadership", level: 75 }
+    "Problem Solving",
+    "Team Collaboration",
+    "Communication",
+    "Project Management",
+    "Time Management",
+    "Leadership"
   ]
 };
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 bg-secondary/30">
+    <section id="skills" className="py-24 bg-gradient-to-br from-secondary/50 to-background">
       <div className="container mx-auto">
         <div className="flex items-center gap-2 mb-12">
           <Code className="text-primary" />
@@ -48,43 +48,31 @@ const Skills = () => {
           </TabsList>
 
           <TabsContent value="technical" className="animate-fade-in">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {skillsData.technical.map((skill, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium">{skill.name}</span>
-                    <span className="text-sm text-foreground/70">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-2" />
-                </div>
+                <Card key={index} className="p-4 flex items-center justify-center text-center hover:bg-primary/5 transition-colors border-primary/20">
+                  <span className="font-medium">{skill}</span>
+                </Card>
               ))}
             </div>
           </TabsContent>
           
           <TabsContent value="software" className="animate-fade-in">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {skillsData.software.map((skill, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium">{skill.name}</span>
-                    <span className="text-sm text-foreground/70">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-2" />
-                </div>
+                <Card key={index} className="p-4 flex items-center justify-center text-center hover:bg-primary/5 transition-colors border-primary/20">
+                  <span className="font-medium">{skill}</span>
+                </Card>
               ))}
             </div>
           </TabsContent>
           
           <TabsContent value="soft" className="animate-fade-in">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {skillsData.soft.map((skill, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium">{skill.name}</span>
-                    <span className="text-sm text-foreground/70">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-2" />
-                </div>
+                <Card key={index} className="p-4 flex items-center justify-center text-center hover:bg-primary/5 transition-colors border-primary/20">
+                  <span className="font-medium">{skill}</span>
+                </Card>
               ))}
             </div>
           </TabsContent>
