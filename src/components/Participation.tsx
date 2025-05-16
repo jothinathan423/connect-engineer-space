@@ -1,8 +1,9 @@
 
 import React from 'react';
 import { Users } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 const participationData = [
   {
@@ -10,28 +11,32 @@ const participationData = [
     date: "March 2023",
     description: "Participated as a student delegate and presented a poster on 'Applications of Machine Learning in Robotic Control Systems'.",
     location: "San Francisco, CA",
-    category: "Conference"
+    category: "Conference",
+    certificateUrl: "#"
   },
   {
     title: "ASME E-Fest Engineering Competition",
     date: "November 2022",
     description: "Competed in the Human Powered Vehicle Challenge as part of a 5-member university team.",
     location: "Boston, MA",
-    category: "Competition"
+    category: "Competition",
+    certificateUrl: "#"
   },
   {
     title: "Workshop on Advanced Manufacturing Techniques",
     date: "August 2022",
     description: "Hands-on training with state-of-the-art CNC machines and additive manufacturing equipment.",
     location: "Chicago, IL",
-    category: "Workshop"
+    category: "Workshop",
+    certificateUrl: "#"
   },
   {
     title: "Sustainability in Engineering Design Symposium",
     date: "May 2022",
     description: "Attended sessions on sustainable materials and eco-friendly design methodologies for mechanical systems.",
     location: "Virtual Event",
-    category: "Symposium"
+    category: "Symposium",
+    certificateUrl: "#"
   }
 ];
 
@@ -68,6 +73,15 @@ const Participation = () => {
                   </div>
                 </div>
               </CardContent>
+              <CardFooter>
+                <Button 
+                  variant="outline" 
+                  className="hover:bg-primary hover:text-primary-foreground"
+                  onClick={() => window.open(event.certificateUrl, '_blank')}
+                >
+                  View Certificate
+                </Button>
+              </CardFooter>
             </Card>
           ))}
         </div>
