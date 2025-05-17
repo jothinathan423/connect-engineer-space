@@ -4,52 +4,89 @@
 /* Hero section */
 #hero {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding-bottom: 100px;
 }
 
 /* About section */
 #about {
   background: linear-gradient(to right, #e6e9f0 0%, #eef1f5 100%);
+  margin-top: -50px;
+  padding-top: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /* Education section */
 #education {
   background: linear-gradient(109.6deg, rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1%);
+  margin-top: -50px;
+  padding-top: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /* Skills section */
 #skills {
   background: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  margin-top: -50px;
+  padding-top: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /* Projects section */
 #projects {
   background: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
   color: #f5f5f5;
+  margin-top: -50px;
+  padding-top: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /* Achievements section */
 #achievements {
   background: linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+  margin-top: -50px;
+  padding-top: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /* Problem Solving section */
 #problem-solving {
   background: linear-gradient(90deg, hsla(46, 73%, 75%, 1) 0%, hsla(176, 73%, 88%, 1) 100%);
+  margin-top: -50px;
+  padding-top: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /* Participation section */
 #participation {
   background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+  margin-top: -50px;
+  padding-top: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /* Certifications section */
 #certifications {
   background: linear-gradient(184.1deg, rgba(249,255,182,1) 44.7%, rgba(226,255,172,1) 67.2%);
+  margin-top: -50px;
+  padding-top: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /* Contact section */
 #contact {
   background: linear-gradient(to right, #c1c161 0%, #c1c161 0%, #d4d4b1 100%);
+  margin-top: -50px;
+  padding-top: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 /* Card hover effects */
@@ -65,18 +102,13 @@
 /* Section transitions */
 section {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 80px;
 }
 
+/* Remove the original section::after since we're using curved borders now */
 section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3));
-  pointer-events: none;
+  content: none;
 }
 
 /* Apply glass morphism to cards */
@@ -85,4 +117,19 @@ section::after {
   background-color: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* Add wave-like decorative elements for section transitions */
+.section-divider {
+  height: 150px;
+  width: 100%;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
