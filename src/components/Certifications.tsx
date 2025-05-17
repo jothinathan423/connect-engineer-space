@@ -12,7 +12,8 @@ const certificationsData = [
     issueDate: "June 2022",
     expiryDate: "June 2025",
     credentialId: "SW-2022-7654321",
-    skills: ["3D Modeling", "Assembly Design", "Engineering Drawing"]
+    skills: ["3D Modeling", "Assembly Design", "Engineering Drawing"],
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ const certificationsData = [
     issueDate: "May 2022",
     expiryDate: "No Expiration",
     credentialId: "EIT-MA-87654321",
-    skills: ["Engineering Fundamentals", "Ethics", "Professional Practice"]
+    skills: ["Engineering Fundamentals", "Ethics", "Professional Practice"],
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
   },
   {
     id: 3,
@@ -30,7 +32,8 @@ const certificationsData = [
     issueDate: "August 2023",
     expiryDate: "August 2026",
     credentialId: "ANS-2023-123456",
-    skills: ["FEA", "Structural Analysis", "Thermal Analysis"]
+    skills: ["FEA", "Structural Analysis", "Thermal Analysis"],
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
   },
   {
     id: 4,
@@ -39,7 +42,8 @@ const certificationsData = [
     issueDate: "January 2023",
     expiryDate: "January 2026",
     credentialId: "PMI-FUND-987654",
-    skills: ["Project Planning", "Risk Management", "Team Leadership"]
+    skills: ["Project Planning", "Risk Management", "Team Leadership"],
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
   },
 ];
 
@@ -54,12 +58,21 @@ const Certifications = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {certificationsData.map((cert, index) => (
-            <Card key={cert.id} className={`animate-slide-up [animation-delay:${index * 150}ms]`}>
+            <Card key={cert.id} className={`animate-slide-up [animation-delay:${index * 150}ms] h-full flex flex-col overflow-hidden group`}>
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={cert.image} 
+                  alt={cert.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute top-2 right-2">
+                  <Badge variant="outline" className="bg-background/80 backdrop-blur-sm">{cert.issueDate}</Badge>
+                </div>
+              </div>
               <CardHeader>
                 <CardTitle>{cert.title}</CardTitle>
                 <CardDescription className="flex justify-between items-center">
                   <span>{cert.issuer}</span>
-                  <Badge variant="outline">{cert.issueDate}</Badge>
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -82,7 +95,7 @@ const Certifications = () => {
                   </div>
                 </div>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="mt-auto">
                 <a href="#" className="text-primary text-sm hover:underline">Verify Certificate</a>
               </CardFooter>
             </Card>
